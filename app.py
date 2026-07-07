@@ -1,19 +1,14 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
 from analyzer import HeaderAnalyzer
 
-app = Flask(__name__, static_folder="public")
+app = Flask(__name__)
 CORS(app)
 
 
 @app.route("/")
 def home():
-    return send_from_directory("public", "index.html")
-
-
-@app.route("/<path:path>")
-def serve_static_files(path):
-    return send_from_directory("public", path)
+    return redirect("/index.html")
 
 
 @app.route("/analyze", methods=["POST"])
