@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>PhishGuard v2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PhishGuard: Header Analyzer 🛡️</h1>
+        <p>Cyber Security Project</p>
+        
+        <textarea id="headerBox" placeholder="Paste raw email headers here..."></textarea>
+        
+        <div class="actions">
+            <button onclick="analyze()">Analyze Now</button>
+            <button onclick="clearAll()" class="btn-alt">Clear</button>
+        </div>
+
+        <div id="loader" class="hidden">Analyzing security protocols...</div>
+
+        <div id="resultArea" class="hidden">
+            <div class="verdict-box">
+                <h2>Verdict: <span id="verdictText"></span></h2>
+                <p>Risk Score: <span id="scoreText"></span>/100</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Header Info</h3>
+                    <div id="infoList"></div>
+                </div>
+                <div class="card">
+                    <h3>Red Flags Found</h3>
+                    <ul id="flagList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
